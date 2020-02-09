@@ -11,7 +11,7 @@ import babel from 'gulp-babel';
 
 const paths = {
   html: {
-    src : './src/*.html',
+    src : './*.html',
     dest: './dist',
   },
   styles: {
@@ -33,22 +33,22 @@ function browserSyncSetting() {
   browserSync.init({
     port:'61620',
     server:{
-      baseDir:'./dist'
+      baseDir:'./'
     }
   });
 }
 
 
 // 每次編譯前先移除原有檔案
-function clean() {
-  return del([ 'dist' ]);
-}
+// function clean() {
+//   return del([ 'dist' ]);
+// }
 
 
 
 function html() {
   return gulp.src(paths.html.src)
-    .pipe(gulp.dest(paths.html.dest))
+    // .pipe(gulp.dest(paths.html.dest))
     .pipe(browserSync.stream());
 }
 
