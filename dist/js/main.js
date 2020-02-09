@@ -20,11 +20,14 @@ function initMap() {
       lat: 23.58,
       lng: 120.58
     },
-    zoom: 13
+    zoom: 16
   });
   infoWindow = new google.maps.InfoWindow();
 
   if (navigator.geolocation) {
+    setTimeout(function () {
+      document.getElementById('loading').style.display = 'none';
+    }, 1000);
     navigator.geolocation.getCurrentPosition(function (position) {
       var pos = {
         lat: position.coords.latitude,
@@ -53,7 +56,7 @@ function initMap() {
       });
     });
     var markerCluster = new MarkerClusterer(map, markers, {
-      imagePath: 'https://noahxyu.github.io/maskmap/dist/images/m'
+      imagePath: 'dist/images/m'
     });
     markers.forEach(function (marker, i) {
       marker.addListener('click', function () {
