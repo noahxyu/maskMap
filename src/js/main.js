@@ -56,7 +56,9 @@ function initMap() {
         });
       });
 
-      var markerCluster = new MarkerClusterer(map, markers);
+      var markerCluster = new MarkerClusterer(map, markers, {
+        imagePath: 'https://noahxyu.github.io/maskmap/dist/images/m'
+      });
 
       markers.forEach((marker, i) => {
         marker.addListener('click', function(){
