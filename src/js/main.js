@@ -57,7 +57,7 @@ function initMap() {
       });
 
       var markerCluster = new MarkerClusterer(map, markers, {
-        imagePath: '../dist/images/m'
+        imagePath: '/dist/images/m'
       });
 
       markers.forEach((marker, i) => {
