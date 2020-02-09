@@ -52,7 +52,9 @@ function initMap() {
         map: map
       });
     });
-    var markerCluster = new MarkerClusterer(map, markers);
+    var markerCluster = new MarkerClusterer(map, markers, {
+      imagePath: '../dist/images/m'
+    });
     markers.forEach(function (marker, i) {
       marker.addListener('click', function () {
         infoWindow.close();
