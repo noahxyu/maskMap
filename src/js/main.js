@@ -24,10 +24,6 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
 
   if (navigator.geolocation) {
-    setTimeout(function(){
-      document.getElementById('loading').style.display = 'none';
-    }, 1000)
-    
     navigator.geolocation.getCurrentPosition(function(position) {
       var pos = {
         lat: position.coords.latitude,
@@ -63,6 +59,9 @@ function initMap() {
       var markerCluster = new MarkerClusterer(map, markers, {
         imagePath: 'dist/images/m'
       });
+
+      // show map after markers loaded
+      document.getElementById('loading').style.display = 'none';
 
       markers.forEach((marker, i) => {
         marker.addListener('click', function(){
